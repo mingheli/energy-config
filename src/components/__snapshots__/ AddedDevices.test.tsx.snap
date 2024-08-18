@@ -1,0 +1,733 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddedDevices Component calls onMinus when minus icon is clicked 1`] = `
+<div>
+  <div
+    class="header-row"
+  >
+    <div
+      class="header-cell"
+    >
+      Device Name
+    </div>
+    <div
+      class="header-cell"
+    >
+      Floor Dimension
+    </div>
+    <div
+      class="header-cell"
+    >
+      Energy
+    </div>
+    <div
+      class="header-cell"
+    >
+      Cost
+    </div>
+    <div
+      class="header-cell"
+    >
+      Release Year
+    </div>
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 1
+    </div>
+    <div
+      class="data-cell"
+    >
+      10x10
+    </div>
+    <div
+      class="data-cell"
+    >
+      100 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $1,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2020
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-down movedown"
+        data-icon="arrow-down"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 2
+    </div>
+    <div
+      class="data-cell"
+    >
+      20x20
+    </div>
+    <div
+      class="data-cell"
+    >
+      200 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $2,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2021
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-up moveup"
+        data-icon="arrow-up"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+  </div>
+</div>
+`;
+
+exports[`AddedDevices Component calls onMoveDown when down arrow icon is clicked 1`] = `
+<div>
+  <div
+    class="header-row"
+  >
+    <div
+      class="header-cell"
+    >
+      Device Name
+    </div>
+    <div
+      class="header-cell"
+    >
+      Floor Dimension
+    </div>
+    <div
+      class="header-cell"
+    >
+      Energy
+    </div>
+    <div
+      class="header-cell"
+    >
+      Cost
+    </div>
+    <div
+      class="header-cell"
+    >
+      Release Year
+    </div>
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 1
+    </div>
+    <div
+      class="data-cell"
+    >
+      10x10
+    </div>
+    <div
+      class="data-cell"
+    >
+      100 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $1,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2020
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-down movedown"
+        data-icon="arrow-down"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 2
+    </div>
+    <div
+      class="data-cell"
+    >
+      20x20
+    </div>
+    <div
+      class="data-cell"
+    >
+      200 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $2,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2021
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-up moveup"
+        data-icon="arrow-up"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+  </div>
+</div>
+`;
+
+exports[`AddedDevices Component calls onMoveUp when up arrow icon is clicked 1`] = `
+<div>
+  <div
+    class="header-row"
+  >
+    <div
+      class="header-cell"
+    >
+      Device Name
+    </div>
+    <div
+      class="header-cell"
+    >
+      Floor Dimension
+    </div>
+    <div
+      class="header-cell"
+    >
+      Energy
+    </div>
+    <div
+      class="header-cell"
+    >
+      Cost
+    </div>
+    <div
+      class="header-cell"
+    >
+      Release Year
+    </div>
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 1
+    </div>
+    <div
+      class="data-cell"
+    >
+      10x10
+    </div>
+    <div
+      class="data-cell"
+    >
+      100 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $1,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2020
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-down movedown"
+        data-icon="arrow-down"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 2
+    </div>
+    <div
+      class="data-cell"
+    >
+      20x20
+    </div>
+    <div
+      class="data-cell"
+    >
+      200 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $2,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2021
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-up moveup"
+        data-icon="arrow-up"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+  </div>
+</div>
+`;
+
+exports[`AddedDevices Component renders device information correctly 1`] = `
+<div>
+  <div
+    class="header-row"
+  >
+    <div
+      class="header-cell"
+    >
+      Device Name
+    </div>
+    <div
+      class="header-cell"
+    >
+      Floor Dimension
+    </div>
+    <div
+      class="header-cell"
+    >
+      Energy
+    </div>
+    <div
+      class="header-cell"
+    >
+      Cost
+    </div>
+    <div
+      class="header-cell"
+    >
+      Release Year
+    </div>
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+    <div
+      class="header-cell"
+    />
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 1
+    </div>
+    <div
+      class="data-cell"
+    >
+      10x10
+    </div>
+    <div
+      class="data-cell"
+    >
+      100 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $1,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2020
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-down movedown"
+        data-icon="arrow-down"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="data-row highlight"
+  >
+    <div
+      class="data-cell"
+    >
+      Device 2
+    </div>
+    <div
+      class="data-cell"
+    >
+      20x20
+    </div>
+    <div
+      class="data-cell"
+    >
+      200 MWh
+    </div>
+    <div
+      class="data-cell"
+    >
+      $2,000.00
+    </div>
+    <div
+      class="data-cell"
+    >
+      2021
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-circle-minus minus"
+        data-icon="circle-minus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-up moveup"
+        data-icon="arrow-up"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 384 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="data-cell"
+    />
+  </div>
+</div>
+`;
