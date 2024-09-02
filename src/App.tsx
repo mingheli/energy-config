@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ResetConfirmModal from "./components/ResetConfirmModal";
 import WarningInfoModal from "./components/WarningInfoModal";
@@ -23,6 +23,7 @@ const App = () => {
   const [totalEnergy, setTotalEnergy] = useState<number>(0);
   const [energyDensity, setEnergyDensity] = useState<number>(0);
   const [allowAdd, setAllowAdd] = useState(true);
+  const [deviceCounts, setDeviceCounts] = useState({});
 
 
   const handlePlus = (device: Device) => {
@@ -150,6 +151,11 @@ const App = () => {
   useEffect(() => {
     checkBrickPosition();
     checkPowerPackNeeded();
+    const counts = addedDevices.reduce((acc, device) => {
+      acc[device.name] = (acc[device.name] || 0) + 1;
+      return acc;
+    }, {});
+    setDeviceCounts(counts);
   }, [addedDevices]);
 
 
@@ -180,9 +186,18 @@ const App = () => {
         </div>
         <div className="right-section">
           <div className="data-section">
-            <div><strong>Price:</strong>{formatPrice(price.toString())}</div>
-            <div><strong>Land Dimension:</strong>{`${fullWidth}x20FT`}</div>
-            <div><strong>Energy Density: </strong>{energyDensity} MJ/m²</div>
+            <div className="data-left">
+              <div><strong>Price:</strong>{formatPrice(price.toString())}</div>
+              <div><strong>Land Dimension:</strong>{`${fullWidth}x20FT`}</div>
+              <div><strong>Energy Density: </strong>{energyDensity} MJ/m²</div>
+            </div>
+            <div className="data-right">
+              <ul>
+                {Object.entries(deviceCounts).map(([name, count]) => (
+                  <li key={name}><strong>Added {name}:</strong> {count as ReactNode}</li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div>
             <label>

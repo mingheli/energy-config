@@ -93,11 +93,39 @@ h1 {
   cursor: pointer;
 }
 .data-section {
-  grid-area: data;
-  width: 50vw;
-  height: 10vw;
-  align-self: center;
-  background-color: lightgrey;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.data-left,
+.data-right {
+  flex: 1;
+}
+
+.data-left {
+  margin-right: 20px;
+}
+.data-left div {
+  margin-bottom: 20px;
+}
+.data-right ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.data-left div,
+.data-right li {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.data-left strong,
+.data-right strong {
+  font-weight: bold;
 }
 .display-section {
   width: calc(50vw * var(--full-width) / 100);
