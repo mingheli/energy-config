@@ -213,6 +213,7 @@ const App: React.FC = () => {
               <div
                 key={index}
                 className={`brick ${device.cssName} ${currentDevice.id === device.id ? "selectedBrick" : ""}`}
+                onClick={() => handleSelectDevice(device)}
               >
                 {device.name}
               </div>)}
