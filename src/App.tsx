@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, { useState, useEffect, useRef, ReactNode, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ResetConfirmModal from "./components/ResetConfirmModal";
 import WarningInfoModal from "./components/WarningInfoModal";
@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const [deviceCounts, setDeviceCounts] = useState<{ [key: string]: number }>({});
 
 
-  const handlePlus = (device: Device) => {
+  const handlePlus = useCallback((device: Device) => {
     if (allowAdd) {
       const { id, ...deviceWithoutId } = device;
       const newDevices = [...addedDevices, { id: uuidv4(), ...deviceWithoutId }];
@@ -34,7 +34,7 @@ const App: React.FC = () => {
       setPrice(price + Number(device.cost));
       setTotalEnergy(totalEnergy + Number(device.energy));
     }
-  }
+  }, [allowAdd, addedDevices, price, totalEnergy]);
 
   const handleMinus = (device: Device) => {
     const newDevices = addedDevices.filter((item) => item.id !== device.id);

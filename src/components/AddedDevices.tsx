@@ -11,7 +11,16 @@ const AddedDevices: React.FC<AddedDevicesProps> = ({ addedDevices, onMinus, onMo
     return (
         <>
 
-            <div className="header-row">
+            <div className="header-row" onClick={() => onSelectDevice({
+                id: "",
+                name: '',
+                floorDimension: '',
+                energy: '',
+                cost: '',
+                cssName: '',
+                releaseDate: '',
+                type: ''
+            })}>
                 <div className="header-cell">Device Name</div>
                 <div className="header-cell">Floor Dimension</div>
                 <div className="header-cell">Energy</div>

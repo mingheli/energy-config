@@ -1,6 +1,7 @@
 export const data = {
     "devices": [
         {
+            "id": "",
             "name": "Megapack 2XL",
             "floorDimension": "40FT x 10FT",
             "energy": "4",
@@ -10,6 +11,7 @@ export const data = {
             "type": "battery"
         },
         {
+            "id": "",
             "name": "Megapack 2",
             "floorDimension": "30FT x 10FT",
             "energy": "3",
@@ -19,6 +21,7 @@ export const data = {
             "type": "battery"
         },
         {
+            "id": "",
             "name": "Megapack",
             "floorDimension": "30FT x 10FT",
             "energy": "2",
@@ -28,6 +31,7 @@ export const data = {
             "type": "battery"
         },
         {
+            "id": "",
             "name": "Powerpack",
             "floorDimension": "10FT x 10FT",
             "energy": "1",
@@ -37,6 +41,7 @@ export const data = {
             "type": "power"
         },
         {
+            "id": "",
             "name": "Transformer",
             "floorDimension": "10FT x 10FT",
             "energy": "-0.25",
