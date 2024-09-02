@@ -13,7 +13,7 @@ import "./App.css";
 const App: React.FC = () => {
   const [showResetModal, setShowResetModal] = useState<boolean>(false);
   const [showFullModal, setShowFullModal] = useState<boolean>(false);
-  const [showPowerModal, setShowPowerModal] = useState<boolean>(false);
+  const [showTransformerModal, setShowTransformerModal] = useState<boolean>(false);
   const [currentDevice, setCurrentDevice] = useState<Device>(initialDeviceState);
   const displaySectionRef = useRef<HTMLDivElement>(null);
   const [addedDevices, setAddedDevices] = useState<Device[]>([]);
@@ -106,7 +106,10 @@ const App: React.FC = () => {
 
   const handleFullClose = () => {
     setShowFullModal(false);
-    setShowPowerModal(false);
+  }
+
+  const handleNeedTransformerClose = () => {
+    setShowTransformerModal(false);
   }
 
 
@@ -127,11 +130,11 @@ const App: React.FC = () => {
     }
   };
 
-  const checkPowerPackNeeded = () => {
+  const checkTransformerPackNeeded = () => {
     const batteryCnt = addedDevices.filter((device) => device.type === "battery").length;
-    const powerCnt = addedDevices.filter((device) => device.type === "power").length;
-    if (batteryCnt / 4 > powerCnt && batteryCnt % 4 === 0) {
-      setShowPowerModal(true);
+    const transformerCnt = addedDevices.filter((device) => device.type === "transformer").length;
+    if (batteryCnt / 4 > transformerCnt && batteryCnt % 4 === 0) {
+      setShowTransformerModal(true);
     }
   }
 
@@ -150,7 +153,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     checkBrickPosition();
-    checkPowerPackNeeded();
+    checkTransformerPackNeeded();
     const counts = addedDevices.reduce((acc, device) => {
       acc[device.name] = (acc[device.name] || 0) + 1;
       return acc;
@@ -165,7 +168,7 @@ const App: React.FC = () => {
     <div className="wrapper">
       <ResetConfirmModal showModal={showResetModal} onConfirm={handleModalConfirm} onCancel={handleModalCancel} />
       <WarningInfoModal showModal={showFullModal} onClose={handleFullClose} text="You have no more space, please adjust before adding more devices" />
-      <WarningInfoModal showModal={showPowerModal} onClose={handleFullClose} text="Every 4 batteries need a power." />
+      <WarningInfoModal showModal={showTransformerModal} onClose={handleNeedTransformerClose} text="Every 4 batteries need a transformer." />
       <h1>Industrial Energy Battery Site Configurator</h1>
       <div className="panel">
         <div className="left-section">
