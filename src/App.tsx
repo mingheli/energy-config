@@ -10,10 +10,10 @@ import { formatPrice } from './utils/commonUtils';
 import "./App.css";
 
 
-const App = () => {
-  const [showResetModal, setShowResetModal] = useState(false);
-  const [showFullModal, setShowFullModal] = useState(false);
-  const [showPowerModal, setShowPowerModal] = useState(false);
+const App: React.FC = () => {
+  const [showResetModal, setShowResetModal] = useState<boolean>(false);
+  const [showFullModal, setShowFullModal] = useState<boolean>(false);
+  const [showPowerModal, setShowPowerModal] = useState<boolean>(false);
   const [currentDevice, setCurrentDevice] = useState<Device>(initialDeviceState);
   const displaySectionRef = useRef<HTMLDivElement>(null);
   const [addedDevices, setAddedDevices] = useState<Device[]>([]);
@@ -22,8 +22,8 @@ const App = () => {
   const [price, setPrice] = useState<number>(0);
   const [totalEnergy, setTotalEnergy] = useState<number>(0);
   const [energyDensity, setEnergyDensity] = useState<number>(0);
-  const [allowAdd, setAllowAdd] = useState(true);
-  const [deviceCounts, setDeviceCounts] = useState({});
+  const [allowAdd, setAllowAdd] = useState<boolean>(true);
+  const [deviceCounts, setDeviceCounts] = useState<{ [key: string]: number }>({});
 
 
   const handlePlus = (device: Device) => {
@@ -154,7 +154,7 @@ const App = () => {
     const counts = addedDevices.reduce((acc, device) => {
       acc[device.name] = (acc[device.name] || 0) + 1;
       return acc;
-    }, {});
+    }, {} as { [key: string]: number });
     setDeviceCounts(counts);
   }, [addedDevices]);
 
