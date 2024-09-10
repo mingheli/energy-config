@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const displaySectionRef = useRef<HTMLDivElement>(null);
   const [addedDevices, setAddedDevices] = useState<Device[]>([]);
   const [fullWidth, setFullWidth] = useState<number>(100);
-  const [fullHeight, setFullHeight] = useState<number>(100);
+  const [fullHeight, setFullHeight] = useState<number>(50);
   const [newWidth, setNewWidth] = useState<number | null>(null);
   const [newHeight, setNewHeight] = useState<number | null>(null);
   const [price, setPrice] = useState<number>(0);
@@ -195,63 +195,63 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="wrapper">
-      <ResetConfirmModal showModal={showResetModal} onConfirm={handleModalConfirm} onCancel={handleModalCancel} />
-      <WarningInfoModal showModal={showFullModal} onClose={handleFullClose} text="You have no more space, please adjust before adding more devices" />
-      <WarningInfoModal showModal={showTransformerModal} onClose={handleNeedTransformerClose} text="Every 4 batteries need a transformer." />
-      <header className="site-header">
-        <h1>Industrial Energy Battery Site Configurator</h1>
-      </header>
-
-      <div className="panel">
-        <div className="left-section">
-          <ChooseDevices devices={data.devices} onPlus={handlePlus} />
-          <AddedDevices addedDevices={addedDevices}
-            onMinus={handleMinus}
-            onMoveDown={handleMoveDown}
-            onMoveUp={handleMoveUp}
-            onSelectDevice={handleSelectDevice}
-            currentDevice={currentDevice}
-          />
-        </div>
-        <div className="right-section">
-          <div className="data-section">
-            <div className="data-left">
-              <div><strong>Price:</strong>{formatPrice(price.toString())}</div>
-              <div><strong>Land Dimension:</strong>{`${fullWidth}x20FT`}</div>
-              <div><strong>Energy Density: </strong>{energyDensity} MJ/m²</div>
+    <>      <header className="site-header">
+      <h1>Industrial Energy Battery Site Configurator</h1>
+    </header>
+      <div className="wrapper">
+        <ResetConfirmModal showModal={showResetModal} onConfirm={handleModalConfirm} onCancel={handleModalCancel} />
+        <WarningInfoModal showModal={showFullModal} onClose={handleFullClose} text="You have no more space, please adjust before adding more devices" />
+        <WarningInfoModal showModal={showTransformerModal} onClose={handleNeedTransformerClose} text="Every 4 batteries need a transformer." />
+        <div className="panel">
+          <div className="left-section">
+            <ChooseDevices devices={data.devices} onPlus={handlePlus} />
+            <AddedDevices addedDevices={addedDevices}
+              onMinus={handleMinus}
+              onMoveDown={handleMoveDown}
+              onMoveUp={handleMoveUp}
+              onSelectDevice={handleSelectDevice}
+              currentDevice={currentDevice}
+            />
+          </div>
+          <div className="right-section">
+            <div className="data-section">
+              <div className="data-left">
+                <div><strong>Price:</strong>{formatPrice(price.toString())}</div>
+                <div><strong>Land Dimension:</strong>{`${fullWidth}x20FT`}</div>
+                <div><strong>Energy Density: </strong>{energyDensity} MJ/m²</div>
+              </div>
+              <div className="data-right">
+                <ul>
+                  {Object.entries(deviceCounts).map(([name, count]) => (
+                    <li key={name}><strong>Added {name}:</strong> {count as ReactNode}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="data-right">
-              <ul>
-                {Object.entries(deviceCounts).map(([name, count]) => (
-                  <li key={name}><strong>Added {name}:</strong> {count as ReactNode}</li>
-                ))}
-              </ul>
+            <div className="config-width-height">
+              <label>
+                Site Width(FT):
+                <input type="number" value={fullWidth} onChange={handleFullWidthChange} />
+              </label>
+              <label>
+                Site Height(FT):
+                <input type="number" value={fullHeight} onChange={handleFullHeightChange} />
+              </label>
+              <div className="display-section" ref={displaySectionRef}>
+                {addedDevices.map((device, index) =>
+                  <div
+                    key={index}
+                    className={`brick ${device.cssName} ${currentDevice.id === device.id ? "selectedBrick" : ""}`}
+                    onClick={() => handleSelectDevice(device)}
+                  >
+                    {device.name}
+                  </div>)}
+              </div>
             </div>
           </div>
-          <div className="config-width-height">
-            <label>
-              Site Width(FT):
-              <input type="number" value={fullWidth} onChange={handleFullWidthChange} />
-            </label>
-            <label>
-              Site Height(FT):
-              <input type="number" value={fullHeight} onChange={handleFullHeightChange} />
-            </label>
-            <div className="display-section" ref={displaySectionRef}>
-              {addedDevices.map((device, index) =>
-                <div
-                  key={index}
-                  className={`brick ${device.cssName} ${currentDevice.id === device.id ? "selectedBrick" : ""}`}
-                  onClick={() => handleSelectDevice(device)}
-                >
-                  {device.name}
-                </div>)}
-            </div>
-          </div>
         </div>
-      </div>
-    </div >
+      </div >
+    </>
   );
 };
 
