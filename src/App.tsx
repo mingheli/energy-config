@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef, ReactNode, useCallback } from 'reac
 import { v4 as uuidv4 } from 'uuid';
 import ResetConfirmModal from "./components/ResetConfirmModal";
 import WarningInfoModal from "./components/WarningInfoModal";
-import SearchResult from './components/SearchResult';
+import ChooseDevices from './components/ChooseDevices';
 import AddedDevices from "./components/AddedDevices";
 import { Device, initialDeviceState } from './types/commonTypes';
 import { data } from './data/data';
 import { formatPrice } from './utils/commonUtils';
-import "./App.css";
+import "./App.scss";
 
 
 const App: React.FC = () => {
@@ -169,23 +169,20 @@ const App: React.FC = () => {
       <ResetConfirmModal showModal={showResetModal} onConfirm={handleModalConfirm} onCancel={handleModalCancel} />
       <WarningInfoModal showModal={showFullModal} onClose={handleFullClose} text="You have no more space, please adjust before adding more devices" />
       <WarningInfoModal showModal={showTransformerModal} onClose={handleNeedTransformerClose} text="Every 4 batteries need a transformer." />
-      <h1>Industrial Energy Battery Site Configurator</h1>
+      <header className="site-header">
+        <h1>Industrial Energy Battery Site Configurator</h1>
+      </header>
+
       <div className="panel">
         <div className="left-section">
-          <h3> Choose devices below</h3>
-          <div className="left-middle">
-            <SearchResult devices={data.devices} onPlus={handlePlus} />
-          </div>
-          <h3> Devices added</h3>
-          <div className="left-bottom">
-            <AddedDevices addedDevices={addedDevices}
-              onMinus={handleMinus}
-              onMoveDown={handleMoveDown}
-              onMoveUp={handleMoveUp}
-              onSelectDevice={handleSelectDevice}
-              currentDevice={currentDevice}
-            />
-          </div>
+          <ChooseDevices devices={data.devices} onPlus={handlePlus} />
+          <AddedDevices addedDevices={addedDevices}
+            onMinus={handleMinus}
+            onMoveDown={handleMoveDown}
+            onMoveUp={handleMoveUp}
+            onSelectDevice={handleSelectDevice}
+            currentDevice={currentDevice}
+          />
         </div>
         <div className="right-section">
           <div className="data-section">
@@ -202,21 +199,21 @@ const App: React.FC = () => {
               </ul>
             </div>
           </div>
-          <div>
+          <div className="config-width-height">
             <label>
               Site Width(FT):
               <input type="number" value={fullWidth} onChange={handleFullWidthChange} />
             </label>
-          </div>
-          <div className="display-section" ref={displaySectionRef}>
-            {addedDevices.map((device, index) =>
-              <div
-                key={index}
-                className={`brick ${device.cssName} ${currentDevice.id === device.id ? "selectedBrick" : ""}`}
-                onClick={() => handleSelectDevice(device)}
-              >
-                {device.name}
-              </div>)}
+            <div className="display-section" ref={displaySectionRef}>
+              {addedDevices.map((device, index) =>
+                <div
+                  key={index}
+                  className={`brick ${device.cssName} ${currentDevice.id === device.id ? "selectedBrick" : ""}`}
+                  onClick={() => handleSelectDevice(device)}
+                >
+                  {device.name}
+                </div>)}
+            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,8 @@
+$baseColor: #398b93;
+$borderRadius: 10px;
+$imageBig: 100px;
+$imageSmall: 60px;
+$padding: 10px;
 :root {
   --full-width: 100;
 }
@@ -6,20 +11,35 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(207, 198, 198);
+  background-color: lighten($baseColor, 80%);
 }
 h1 {
-  align-self: center;
+  color: white;
+  text-align:center;
+  margin:0;
+  font-size: 3em;
 }
+.site-header {
+  background: linear-gradient(181deg, darken($baseColor, 20%) 0%, $baseColor 48%, lighten($baseColor, 20%) 100%);
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center;
+  height: 10%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+
+
 .panel {
   margin-top: 20px;
   display: flex;
-  gap: 10px;
+  gap: 5em
 }
 .left-section {
   height: auto;
-  width: 50vw;
-  background-color: lightgrey;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,52 +48,9 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.left-top {
-  display: flex;
-  gap: 25px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-.left-top select {
-  padding: 7px 10px;
-  border: none;
-  border-radius: 5px;
-}
-.left-top input {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-}
-.left-middle {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr 2fr 1.5fr 0.5fr;
-  margin: 0 20px;
-  width: 88%;
-  margin-bottom: 20px;
-}
-.left-bottom {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr 2fr 1fr 0.5fr 0.25fr 0.25fr;
-  margin: 0 20px;
-  width: 88%;
-}
-.header-row {
-  display: contents;
-}
-.header-cell {
-  border: 1px solid black;
-  text-align: center;
-  font-weight: 600;
-}
-.data-row {
-  display: contents;
-}
-.data-cell {
-  border: 1px solid black;
-  text-align: center;
-}
+  margin-top: 1em;
+ }
+
 .plus {
   color: green;
 }
@@ -96,13 +73,14 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #e2dddd;
+  background-color: lighten($baseColor, 50%);
   grid-area: data;
   width: 50vw;
-
   height: 10vw;
+  margin-right: 2em;
+  border: 1px solid darken($baseColor, 5%);
+  border-radius: $borderRadius;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
 }
 
 .data-left,
@@ -131,13 +109,27 @@ h1 {
 .data-right strong {
   font-weight: bold;
 }
+.config-width-height {
+  margin-top: 2em;
+   background-color: darken($baseColor, 5%);
+   color: white;
+   font-size: 1em;
+   width: calc(50vw * var(--full-width) / 100);
+   border: 1px solid darken($baseColor, 5%);
+   border-radius: $borderRadius;
+   box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+}
+label {
+  padding: $padding;
+}
 .display-section {
   width: calc(50vw * var(--full-width) / 100);
   height: 10vw;
   align-self: center;
   display: flex;
   flex-wrap: wrap;
-  background-color: lightgrey;
+  background-color: lighten($baseColor, 50%);
+  margin-right: 2em;
 }
 .brick {
   height: 40%;
@@ -152,23 +144,27 @@ h1 {
 }
 .mega2xl {
   width: calc(40 / var(--full-width) * 100%);
-  background-color: rgb(5, 50, 65);
+   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(175, 5, 5), 50%));
 }
 .mega2 {
   width: calc(30 / var(--full-width) * 100%);
-  background-color: red;
+   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(45, 19, 87), 50%));
+
 }
 .mega {
   width: calc(30 / var(--full-width) * 100%);
-  background-color: rgb(52, 52, 3);
+  background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(240, 6, 240), 50%));
+
 }
 .power {
   width: calc(10 / var(--full-width) * 100%);
-  background-color: green;
+   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(243, 242, 244), 50%));
+
 }
 .transform {
   width: calc(10 / var(--full-width) * 100%);
-  background-color: purple;
+  background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(250, 250, 19), 50%));
+
 }
 .highlight {
   font-weight: 600;
