@@ -144,26 +144,26 @@ label {
 }
 .mega2xl {
   width: calc(40 / var(--full-width) * 100%);
-   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(175, 5, 5), 50%));
+   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(175, 5, 5), 30%));
 }
 .mega2 {
   width: calc(30 / var(--full-width) * 100%);
-   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(45, 19, 87), 50%));
+   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(45, 19, 87), 30%));
 
 }
 .mega {
   width: calc(30 / var(--full-width) * 100%);
-  background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(240, 6, 240), 50%));
+  background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(240, 6, 240), 30%));
 
 }
 .power {
   width: calc(10 / var(--full-width) * 100%);
-   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(243, 242, 244), 50%));
+   background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(243, 242, 244), 30%));
 
 }
 .transform {
   width: calc(10 / var(--full-width) * 100%);
-  background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(250, 250, 19), 50%));
+  background: linear-gradient(135deg, $baseColor, mix($baseColor, rgb(250, 250, 19), 30%));
 
 }
 .highlight {

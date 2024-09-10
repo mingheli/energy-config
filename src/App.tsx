@@ -134,7 +134,20 @@ const App: React.FC = () => {
     const batteryCnt = addedDevices.filter((device) => device.type === "battery").length;
     const transformerCnt = addedDevices.filter((device) => device.type === "transformer").length;
     if (batteryCnt / 4 > transformerCnt && batteryCnt % 4 === 0) {
-      setShowTransformerModal(true);
+      const transformer = {
+        "name": "Transformer",
+        "floorDimension": "10FT x 10FT",
+        "energy": "-0.25",
+        "cost": "10000",
+        "releaseDate": "-",
+        "cssName": "transform",
+        "type": "transformer"
+      }
+      const newDevices = [{ id: uuidv4(), ...transformer }, ...addedDevices];
+      setAddedDevices(newDevices);
+      setPrice(price + Number(transformer.cost));
+      setTotalEnergy(totalEnergy + Number(transformer.energy));
+      // setShowTransformerModal(true);
     }
   }
 
@@ -152,8 +165,9 @@ const App: React.FC = () => {
   }, [totalEnergy]);
 
   useEffect(() => {
-    checkBrickPosition();
     checkTransformerPackNeeded();
+    checkBrickPosition();
+
     const counts = addedDevices.reduce((acc, device) => {
       acc[device.name] = (acc[device.name] || 0) + 1;
       return acc;
