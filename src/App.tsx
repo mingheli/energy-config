@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ReactNode, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ResetConfirmModal from "./components/ResetConfirmModal";
 import WarningInfoModal from "./components/WarningInfoModal";
@@ -10,10 +10,10 @@ import { formatPrice } from './utils/commonUtils';
 import "./App.css";
 
 
-const App = () => {
-  const [showResetModal, setShowResetModal] = useState(false);
-  const [showFullModal, setShowFullModal] = useState(false);
-  const [showPowerModal, setShowPowerModal] = useState(false);
+const App: React.FC = () => {
+  const [showResetModal, setShowResetModal] = useState<boolean>(false);
+  const [showFullModal, setShowFullModal] = useState<boolean>(false);
+  const [showTransformerModal, setShowTransformerModal] = useState<boolean>(false);
   const [currentDevice, setCurrentDevice] = useState<Device>(initialDeviceState);
   const displaySectionRef = useRef<HTMLDivElement>(null);
   const [addedDevices, setAddedDevices] = useState<Device[]>([]);
@@ -22,10 +22,11 @@ const App = () => {
   const [price, setPrice] = useState<number>(0);
   const [totalEnergy, setTotalEnergy] = useState<number>(0);
   const [energyDensity, setEnergyDensity] = useState<number>(0);
-  const [allowAdd, setAllowAdd] = useState(true);
+  const [allowAdd, setAllowAdd] = useState<boolean>(true);
+  const [deviceCounts, setDeviceCounts] = useState<{ [key: string]: number }>({});
 
 
-  const handlePlus = (device: Device) => {
+  const handlePlus = useCallback((device: Device) => {
     if (allowAdd) {
       const { id, ...deviceWithoutId } = device;
       const newDevices = [...addedDevices, { id: uuidv4(), ...deviceWithoutId }];
@@ -33,7 +34,7 @@ const App = () => {
       setPrice(price + Number(device.cost));
       setTotalEnergy(totalEnergy + Number(device.energy));
     }
-  }
+  }, [allowAdd, addedDevices, price, totalEnergy]);
 
   const handleMinus = (device: Device) => {
     const newDevices = addedDevices.filter((item) => item.id !== device.id);
@@ -105,7 +106,10 @@ const App = () => {
 
   const handleFullClose = () => {
     setShowFullModal(false);
-    setShowPowerModal(false);
+  }
+
+  const handleNeedTransformerClose = () => {
+    setShowTransformerModal(false);
   }
 
 
@@ -126,11 +130,11 @@ const App = () => {
     }
   };
 
-  const checkPowerPackNeeded = () => {
+  const checkTransformerPackNeeded = () => {
     const batteryCnt = addedDevices.filter((device) => device.type === "battery").length;
-    const powerCnt = addedDevices.filter((device) => device.type === "power").length;
-    if (batteryCnt / 4 > powerCnt && batteryCnt % 4 === 0) {
-      setShowPowerModal(true);
+    const transformerCnt = addedDevices.filter((device) => device.type === "transformer").length;
+    if (batteryCnt / 4 > transformerCnt && batteryCnt % 4 === 0) {
+      setShowTransformerModal(true);
     }
   }
 
@@ -149,7 +153,12 @@ const App = () => {
 
   useEffect(() => {
     checkBrickPosition();
-    checkPowerPackNeeded();
+    checkTransformerPackNeeded();
+    const counts = addedDevices.reduce((acc, device) => {
+      acc[device.name] = (acc[device.name] || 0) + 1;
+      return acc;
+    }, {} as { [key: string]: number });
+    setDeviceCounts(counts);
   }, [addedDevices]);
 
 
@@ -159,7 +168,7 @@ const App = () => {
     <div className="wrapper">
       <ResetConfirmModal showModal={showResetModal} onConfirm={handleModalConfirm} onCancel={handleModalCancel} />
       <WarningInfoModal showModal={showFullModal} onClose={handleFullClose} text="You have no more space, please adjust before adding more devices" />
-      <WarningInfoModal showModal={showPowerModal} onClose={handleFullClose} text="Every 4 batteries need a power." />
+      <WarningInfoModal showModal={showTransformerModal} onClose={handleNeedTransformerClose} text="Every 4 batteries need a transformer." />
       <h1>Industrial Energy Battery Site Configurator</h1>
       <div className="panel">
         <div className="left-section">
@@ -180,9 +189,18 @@ const App = () => {
         </div>
         <div className="right-section">
           <div className="data-section">
-            <div><strong>Price:</strong>{formatPrice(price.toString())}</div>
-            <div><strong>Land Dimension:</strong>{`${fullWidth}x20FT`}</div>
-            <div><strong>Energy Density: </strong>{energyDensity} MJ/m²</div>
+            <div className="data-left">
+              <div><strong>Price:</strong>{formatPrice(price.toString())}</div>
+              <div><strong>Land Dimension:</strong>{`${fullWidth}x20FT`}</div>
+              <div><strong>Energy Density: </strong>{energyDensity} MJ/m²</div>
+            </div>
+            <div className="data-right">
+              <ul>
+                {Object.entries(deviceCounts).map(([name, count]) => (
+                  <li key={name}><strong>Added {name}:</strong> {count as ReactNode}</li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div>
             <label>
@@ -195,6 +213,7 @@ const App = () => {
               <div
                 key={index}
                 className={`brick ${device.cssName} ${currentDevice.id === device.id ? "selectedBrick" : ""}`}
+                onClick={() => handleSelectDevice(device)}
               >
                 {device.name}
               </div>)}

@@ -75,13 +75,13 @@ h1 {
   text-align: center;
 }
 .plus {
-  color: red;
+  color: green;
 }
 .plus:hover {
   cursor: pointer;
 }
 .minus {
-  color: green;
+  color: red;
 }
 .minus:hover {
   cursor: pointer;
@@ -93,11 +93,43 @@ h1 {
   cursor: pointer;
 }
 .data-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #e2dddd;
   grid-area: data;
   width: 50vw;
+
   height: 10vw;
-  align-self: center;
-  background-color: lightgrey;
+}
+
+.data-left,
+.data-right {
+  flex: 1;
+}
+
+.data-left {
+  margin-right: 20px;
+}
+.data-left div {
+  margin-bottom: 20px;
+}
+.data-right ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.data-left div,
+.data-right li {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.data-left strong,
+.data-right strong {
+  font-weight: bold;
 }
 .display-section {
   width: calc(50vw * var(--full-width) / 100);
@@ -141,6 +173,29 @@ h1 {
 .highlight {
   font-weight: 600;
 }
+.highlight > .data-cell {
+  background-color: yellow;
+}
+
 .selectedBrick {
   border: 2px solid yellow;
+  animation: flowingBorder 2s infinite;
+}
+
+@keyframes flowingBorder {
+  0% {
+    border-color: yellow;
+    box-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow,
+      0 0 20px yellow;
+  }
+  50% {
+    border-color: transparent;
+    box-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow,
+      0 0 20px yellow;
+  }
+  100% {
+    border-color: yellow;
+    box-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow,
+      0 0 20px yellow;
+  }
 }
