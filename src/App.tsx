@@ -18,7 +18,9 @@ const App: React.FC = () => {
   const displaySectionRef = useRef<HTMLDivElement>(null);
   const [addedDevices, setAddedDevices] = useState<Device[]>([]);
   const [fullWidth, setFullWidth] = useState<number>(100);
+  const [fullHeight, setFullHeight] = useState<number>(100);
   const [newWidth, setNewWidth] = useState<number | null>(null);
+  const [newHeight, setNewHeight] = useState<number | null>(null);
   const [price, setPrice] = useState<number>(0);
   const [totalEnergy, setTotalEnergy] = useState<number>(0);
   const [energyDensity, setEnergyDensity] = useState<number>(0);
@@ -85,11 +87,23 @@ const App: React.FC = () => {
 
     }
   }
+  const handleFullHeightChange = (e) => {
+    if (e.target.value <= 100 && e.target.value > 10) {
+      if (addedDevices.length > 0) {
+        setShowResetModal(true);
+        setNewHeight(e.target.value);
+      } else {
+        setFullHeight(e.target.value);
+      }
+
+    }
+  }
 
   const handleModalConfirm = () => {
     setAddedDevices([]);
     if (typeof newWidth === 'number' && newWidth >= 0) {
       setFullWidth(newWidth);
+      setFullHeight(newHeight);
     } else {
       console.error('Invalid width value');
     }
@@ -102,6 +116,7 @@ const App: React.FC = () => {
   const handleModalCancel = () => {
     setShowResetModal(false);
     setNewWidth(null);
+    setNewHeight(null);
   };
 
   const handleFullClose = () => {
@@ -158,10 +173,11 @@ const App: React.FC = () => {
 
   useEffect(() => {
     document.documentElement.style.setProperty('--full-width', `${fullWidth}`);
-  }, [fullWidth]);
+    document.documentElement.style.setProperty('--full-height', `${fullHeight}`);
+  }, [fullHeight, fullWidth]);
 
   useEffect(() => {
-    calculateEnergyDensity(totalEnergy, `${fullWidth}x20FT`);
+    calculateEnergyDensity(totalEnergy, `${fullWidth}x${fullHeight}`);
   }, [totalEnergy]);
 
   useEffect(() => {
@@ -217,6 +233,10 @@ const App: React.FC = () => {
             <label>
               Site Width(FT):
               <input type="number" value={fullWidth} onChange={handleFullWidthChange} />
+            </label>
+            <label>
+              Site Height(FT):
+              <input type="number" value={fullHeight} onChange={handleFullHeightChange} />
             </label>
             <div className="display-section" ref={displaySectionRef}>
               {addedDevices.map((device, index) =>
