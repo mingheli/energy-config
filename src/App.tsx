@@ -7,7 +7,7 @@ import AddedDevices from "./components/AddedDevices";
 import { Device, initialDeviceState } from './types/commonTypes';
 import { data } from './data/data';
 import { formatPrice } from './utils/commonUtils';
-import "./App.scss";
+import "./css/App.scss";
 
 
 const App: React.FC = () => {
@@ -135,6 +135,7 @@ const App: React.FC = () => {
       if (lastBrick) {
         const lastBrickBottom = lastBrick.getBoundingClientRect().bottom;
         if (lastBrickBottom > displaySectionHeight) {
+
           setShowFullModal(true);
           setAddedDevices(prevDevices => prevDevices.slice(0, -1));
           setAllowAdd(false);
@@ -158,10 +159,11 @@ const App: React.FC = () => {
         "cssName": "transform",
         "type": "transformer"
       }
-      const newDevices = [{ id: uuidv4(), ...transformer }, ...addedDevices];
+      const newDevices = [...addedDevices, { id: uuidv4(), ...transformer }];
       setAddedDevices(newDevices);
       setPrice(price + Number(transformer.cost));
       setTotalEnergy(totalEnergy + Number(transformer.energy));
+      checkBrickPosition();
       // setShowTransformerModal(true);
     }
   }
@@ -169,7 +171,6 @@ const App: React.FC = () => {
   const handleSelectDevice = (device) => {
     setCurrentDevice(device);
   }
-
 
   useEffect(() => {
     document.documentElement.style.setProperty('--full-width', `${fullWidth}`);

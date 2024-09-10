@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { formatPrice } from '../utils/commonUtils';
 import { Device } from '../types/commonTypes';
-import "./ConfigTable.scss";
+import "../css/ConfigTable.scss";
 
 interface ChooseDevicesProps {
     devices: Device[];

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle, faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { AddedDevicesProps, Device } from "../types/commonTypes";
 import { formatPrice } from '../utils/commonUtils';
-import "./ConfigTable.scss";
+import "../css/ConfigTable.scss";
 
 const AddedDevices: React.FC<AddedDevicesProps> = ({ addedDevices, onMinus, onMoveUp, onMoveDown, onSelectDevice, currentDevice }) => {
     if (!addedDevices) {

@@ -1,8 +1,4 @@
-$baseColor: #398b93;
-$borderRadius: 10px;
-$imageBig: 100px;
-$imageSmall: 60px;
-$padding: 10px;
+@import 'variables';
 :root {
   --full-width: 100;
   --full-height: 50;
