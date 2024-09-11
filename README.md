@@ -4,14 +4,14 @@
 Tools to simulate the devices configure in a site.
 
 ## Improvement
-Take a pass at polishing the UI design
-Add transformers automatically when they are needed
-Include the improvements/bug fixes that you mentioned during our call (Color or + and - buttons, fix using Powerpack instead of transformer)
+### Take a pass at polishing the UI design
+### Add transformers automatically when they are needed
+### Include the improvements/bug fixes that you mentioned during our call (Color or + and - buttons, fix using Powerpack instead of transformer)
 
 ![record4](https://github.com/user-attachments/assets/e24ac876-746a-4024-969d-8ab19404af52)
 
 
-Do not fix the height of the layout, make it scale vertically as batteries are added
+### Do not fix the height of the layout, make it scale vertically as batteries are added
 
 ![record5](https://github.com/user-attachments/assets/3eee2199-5928-49c3-a5dc-0eee81026a09)
 
