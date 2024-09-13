@@ -8,6 +8,7 @@ import { Device, initialDeviceState } from './types/commonTypes';
 import { data } from './data/data';
 import { formatPrice } from './utils/commonUtils';
 import "./css/App.scss";
+import AddTransformerModal from './components/AddTransformerModal';
 
 
 const App: React.FC = () => {
@@ -126,6 +127,22 @@ const App: React.FC = () => {
     setShowTransformerModal(false);
   }
 
+  const handleNeedTransformerConfirm = () => {
+    const transformer = {
+      "name": "Transformer",
+      "floorDimension": "10FT x 10FT",
+      "energy": "-0.25",
+      "cost": "10000",
+      "releaseDate": "-",
+      "cssName": "transform",
+      "type": "transformer"
+    }
+    const newDevices = [...addedDevices, { id: uuidv4(), ...transformer }];
+    setAddedDevices(newDevices);
+    setPrice(price + Number(transformer.cost));
+    setTotalEnergy(totalEnergy + Number(transformer.energy));
+    setShowTransformerModal(false);
+  }
 
   const checkBrickPosition = () => {
     if (displaySectionRef.current) {
@@ -148,21 +165,7 @@ const App: React.FC = () => {
     const batteryCnt = addedDevices.filter((device) => device.type === "battery").length;
     const transformerCnt = addedDevices.filter((device) => device.type === "transformer").length;
     if (batteryCnt / 4 > transformerCnt && batteryCnt % 4 === 0) {
-      const transformer = {
-        "name": "Transformer",
-        "floorDimension": "10FT x 10FT",
-        "energy": "-0.25",
-        "cost": "10000",
-        "releaseDate": "-",
-        "cssName": "transform",
-        "type": "transformer"
-      }
-      const newDevices = [...addedDevices, { id: uuidv4(), ...transformer }];
-      setAddedDevices(newDevices);
-      setPrice(price + Number(transformer.cost));
-      setTotalEnergy(totalEnergy + Number(transformer.energy));
-      checkBrickPosition();
-      // setShowTransformerModal(true);
+      setShowTransformerModal(true);
     }
   }
 
@@ -183,6 +186,8 @@ const App: React.FC = () => {
     checkTransformerPackNeeded();
     checkBrickPosition();
 
+
+
     const counts = addedDevices.reduce((acc, device) => {
       acc[device.name] = (acc[device.name] || 0) + 1;
       return acc;
@@ -200,7 +205,7 @@ const App: React.FC = () => {
       <div className="wrapper">
         <ResetConfirmModal showModal={showResetModal} onConfirm={handleModalConfirm} onCancel={handleModalCancel} />
         <WarningInfoModal showModal={showFullModal} onClose={handleFullClose} text="You have no more space, please adjust before adding more devices" />
-        <WarningInfoModal showModal={showTransformerModal} onClose={handleNeedTransformerClose} text="Every 4 batteries need a transformer." />
+        <AddTransformerModal showModal={showTransformerModal} onClose={handleNeedTransformerClose} onConfirm={handleNeedTransformerConfirm} text="Every 4 batteries need a transformer, add a transformer?" />
         <div className="panel">
           <div className="left-section">
             <ChooseDevices devices={data.devices} onPlus={handlePlus} />
