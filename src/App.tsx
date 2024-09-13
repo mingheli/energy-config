@@ -134,7 +134,6 @@ const App: React.FC = () => {
       if (lastBrick) {
         const lastBrickBottom = lastBrick.getBoundingClientRect().bottom;
         if (lastBrickBottom > displaySectionHeight) {
-
           setShowFullModal(true);
           setAddedDevices(prevDevices => prevDevices.slice(0, -1));
           setAllowAdd(false);
