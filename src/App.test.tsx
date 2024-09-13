@@ -59,7 +59,7 @@ describe('App Component', () => {
     test('renders the component correctly', () => {
         expect(screen.getByText('Industrial Energy Battery Site Configurator')).toBeInTheDocument();
         expect(screen.getByText('Choose devices below')).toBeInTheDocument();
-        expect(screen.getByText('Devices added')).toBeInTheDocument();
+        expect(screen.getByText('Added Devices')).toBeInTheDocument();
         expect(screen.getByText('Price:')).toBeInTheDocument();
         expect(screen.getByText('Land Dimension:')).toBeInTheDocument();
         expect(screen.getByText('100x20FT')).toBeInTheDocument();
