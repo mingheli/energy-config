@@ -77,18 +77,17 @@ const App: React.FC = () => {
   };
 
   const handleFullWidthChange = (e) => {
-    if (e.target.value <= 100 && e.target.value > 10) {
+    if (e.target.value <= 100 && e.target.value > 40) {
       if (addedDevices.length > 0) {
         setShowResetModal(true);
         setNewWidth(e.target.value);
       } else {
         setFullWidth(e.target.value);
       }
-
     }
   }
   const handleFullHeightChange = (e) => {
-    if (e.target.value <= 100 && e.target.value > 10) {
+    if (e.target.value <= 100 && e.target.value > 20) {
       if (addedDevices.length > 0) {
         setShowResetModal(true);
         setNewHeight(e.target.value);
@@ -101,7 +100,7 @@ const App: React.FC = () => {
 
   const handleModalConfirm = () => {
     setAddedDevices([]);
-    if (typeof newWidth === 'number' && newWidth >= 0) {
+    if (typeof newWidth === 'number' && newWidth >= 0 && typeof newHeight === 'number' && newHeight >= 0) {
       setFullWidth(newWidth);
       setFullHeight(newHeight);
     } else {
