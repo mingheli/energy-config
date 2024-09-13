@@ -185,18 +185,12 @@ const App: React.FC = () => {
   useEffect(() => {
     checkTransformerPackNeeded();
     checkBrickPosition();
-
-
-
     const counts = addedDevices.reduce((acc, device) => {
       acc[device.name] = (acc[device.name] || 0) + 1;
       return acc;
     }, {} as { [key: string]: number });
     setDeviceCounts(counts);
   }, [addedDevices]);
-
-
-
 
   return (
     <>      <header className="site-header">
@@ -221,7 +215,7 @@ const App: React.FC = () => {
             <div className="data-section">
               <div className="data-left">
                 <div><strong>Price:</strong>{formatPrice(price.toString())}</div>
-                <div><strong>Land Dimension:</strong>{`${fullWidth}x20FT`}</div>
+                <div><strong>Land Dimension:</strong>{`${fullWidth}x${fullHeight}FT`}</div>
                 <div><strong>Energy Density: </strong>{energyDensity} MJ/m²</div>
               </div>
               <div className="data-right">
